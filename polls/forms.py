@@ -3,7 +3,7 @@ from models import Poll, PollSubject
 
 
 class PollForm(forms.ModelForm):
-    question = forms.CharField(label='What is you poll about?')
+    question = forms.CharField(label='What is your poll about?')
 
     class Meta:
         model = Poll
@@ -18,6 +18,6 @@ class PollSubjectForm(forms.ModelForm):
 
         self.empty_permitted = False
 
-        class Meta:
-            model = PollSubject
-            fields = ['name']
+    class Meta:
+        model = PollSubject
+        fields = ['name']

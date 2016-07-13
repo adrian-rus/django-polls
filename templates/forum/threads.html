@@ -16,6 +16,7 @@
             </p>
         {% endif %}
         {%  for thread in subject.threads.all %}
+            <hr>
             {% include "forum/thread_item.html" %}
         {% endfor %}
     </div>

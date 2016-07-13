@@ -3,11 +3,12 @@
 {% load staticfiles %}
 
 {% block head_js %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
    <script src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
    <script>
        tinyMCE.init({mode: "textareas", theme: 'modern', plugins: 'paste'})
    </script>
+
 {% endblock %}
 
 
@@ -15,8 +16,9 @@
    <section>
        <div class="col-md-9">
            <form method="post" action="{% url 'new_thread' subject.id %}">
-               <div class="form-group">
+
                {% csrf_token %}
+               <div class="form-group">
                {{ thread_form | as_bootstrap }}
                <hr>
                {{ post_form | as_bootstrap }}
@@ -34,6 +36,7 @@
            </form>
        </div>
    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
     $(function () {
         if (!$('#id_is_a_poll').is('checked')){
