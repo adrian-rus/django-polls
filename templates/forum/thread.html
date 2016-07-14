@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% load thread_extras %}
 {% load staticfiles %}
+{% load thread_extras %}
 {% block content %}
 
  <div class="row header">
@@ -9,16 +9,16 @@
          <div class="col-md-12">
              <table class="table">
                  <tbody>
-                 <tr>
+                 <tr class="text-info">
                      <th>CREATED</th>
                      <th>OWNER</th>
                      <th>LAST POST</th>
                 </tr>
                 <tr>
                     <td>
-                    <time datetime="{{ thread.created_at }}">
-                    {{ thread.created_at|started_time }}
-                    </time>
+                        <time datetime="{{ thread.created_at }}">
+                            {{ thread.created_at|started_time }}
+                        </time>
                     </td>
                     <td>{{ thread.user.username }}</td>
                     <td>{% last_posted_user_name thread %}</td>
@@ -37,7 +37,9 @@
                            <strong> {{ subject.name }}</strong>
                            <span class="pull-right"> {{ subject|vote_percentage }}%</span>
                        </div>
+                       {% autoescape off %}
                        {% user_vote_button thread subject user %}
+                       {% endautoescape %}
                        <div class="col-md-10">
                            <div class="progress">
                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0"

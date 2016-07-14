@@ -152,7 +152,6 @@ def delete_post(request, post_id):
 
 @login_required
 def thread_vote(request, thread_id, subject_id):
-
     thread = Thread.objects.get(id=thread_id)
 
     subject = thread.poll.votes.filter(user=request.user)

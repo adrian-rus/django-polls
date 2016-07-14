@@ -29,5 +29,3 @@ class Vote(models.Model):
     subject = models.ForeignKey(PollSubject, related_name='votes')
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='votes')
 
-
-# Create your models here.
